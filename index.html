@@ -10,7 +10,9 @@
     <div class="container">
         <h1>TOTP Generator</h1>
         
-        <div class="form-group">
+        <div class="content-wrapper">
+            <div class="left-column">
+                <div class="form-group">
             <label for="secret">Secret Key (Base32)</label>
             <div class="input-group">
                 <input type="text" id="secret" placeholder="Enter your secret key">
@@ -64,7 +66,7 @@
             <div class="label-inputs">
                 <div class="form-group">
                     <label for="label">Label</label>
-                    <input type="text" id="label" placeholder="Account name or email">
+                    <input type="text" id="label" placeholder="Account or email">
                 </div>
                 <div class="form-group">
                     <label for="issuer">Service</label>
@@ -82,12 +84,47 @@
             </div>
         </div>
 
-        <div class="info">
-            <p>This TOTP generator works <strong>fully offline</strong> using Web Crypto API.</p>
-            <p>Open source project. Source code available at <a href="https://github.com/Fl0p/otp" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+                <div class="qr-section" id="qrSection" style="display: none;">
+                    <label>QR Code</label>
+                    <canvas id="qrCode"></canvas>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <h2>About Generator</h2>
+                <p>TOTP (Time-based One-Time Password) generator for creating one-time codes for two-factor authentication.</p>
+                
+                <h3>Features</h3>
+                <ul>
+                    <li>Works completely offline</li>
+                    <li>Uses Web Crypto API</li>
+                    <li>Supports SHA-1, SHA-256, SHA-512</li>
+                    <li>Customizable code length (6-10 digits)</li>
+                    <li>Customizable period (10-60 seconds)</li>
+                    <li>QR code generation for quick setup</li>
+                </ul>
+
+                <h3>How to Use</h3>
+                <ol>
+                    <li><strong>Enter secret key</strong> (Base32) or generate a new one 🎲</li>
+                    <li><strong>Specify Label and Service</strong> to identify the account</li>
+                    <li><strong>Configure parameters</strong> (if different from standard)</li>
+                    <li><strong>Copy TOTP code</strong> 📋 or scan the QR code</li>
+                </ol>
+
+                <h3>Security</h3>
+                <p>All calculations are performed locally in your browser. Data is not transmitted to any server and is not stored.</p>
+
+                <h3>otpauth:// URI</h3>
+                <p>The generated link contains all parameters and can be used to import into authenticator apps (Google Authenticator, Authy, 1Password, etc.).</p>
+
+                <h3>Open Source</h3>
+                <p>This project is open source. Source code available at <a href="https://github.com/Fl0p/otp" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+            </div>
         </div>
     </div>
     
+    <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

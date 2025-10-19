@@ -16,6 +16,11 @@ const periodSelect = document.getElementById("period");
 const algorithmSelect = document.getElementById("algorithm");
 const otpauthUriInput = document.getElementById("otpauthUri");
 const copyUriBtn = document.getElementById("copyUriBtn");
+const qrSection = document.getElementById("qrSection");
+const qrCodeCanvas = document.getElementById("qrCode");
+
+// QR Code instance
+let qrCode = null;
 
 /***************************************************
  * Base32 Encode
@@ -157,6 +162,7 @@ function generateOtpauthUri() {
 
     if (!secret || !label) {
         otpauthUriInput.value = "";
+        qrSection.style.display = "none";
         return;
     }
 
@@ -165,6 +171,24 @@ function generateOtpauthUri() {
     const uri = `otpauth://totp/${encodedLabel}?secret=${secret}&issuer=${encodedIssuer}&algorithm=${algorithm}&digits=${digits}&period=${period}`;
     
     otpauthUriInput.value = uri;
+    generateQRCode(uri);
+}
+
+/***************************************************
+ * Generate QR Code
+ ***************************************************/
+function generateQRCode(uri) {
+    if (!qrCode) {
+        qrCode = new QRious({
+            element: qrCodeCanvas,
+            size: 200,
+            value: uri,
+            level: 'H'
+        });
+    } else {
+        qrCode.value = uri;
+    }
+    qrSection.style.display = "block";
 }
 
 /***************************************************
