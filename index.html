@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOTP Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>TOTP Generator</h1>
+        
+        <div class="form-group">
+            <label for="secret">Secret Key (Base32)</label>
+            <div class="input-group">
+                <input type="text" id="secret" placeholder="Enter your secret key">
+                <button id="generateBtn" class="btn-generate" title="Generate random secret">🎲</button>
+            </div>
+        </div>
+
+        <div class="settings-group">
+            <div class="form-group">
+                <label for="digits">Digits</label>
+                <select id="digits">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="period">Period (sec)</label>
+                <select id="period">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="30" selected>30</option>
+                    <option value="60">60</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="algorithm">Algorithm</label>
+                <select id="algorithm">
+                    <option value="SHA-1" selected>SHA-1</option>
+                    <option value="SHA-256">SHA-256</option>
+                    <option value="SHA-512">SHA-512</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="totp-row">
+            <div class="totp-section">
+                <div id="currentTOTP" class="totp-value">------</div>
+            </div>
+            <button id="copyBtn" class="btn-copy-totp" title="Copy TOTP">📋</button>
+        </div>
+
+        <div id="countdown" class="countdown">Valid for --s</div>
+
+        <div class="label-section">
+            <div class="label-inputs">
+                <div class="form-group">
+                    <label for="label">Label</label>
+                    <input type="text" id="label" placeholder="Account name or email">
+                </div>
+                <div class="form-group">
+                    <label for="issuer">Service</label>
+                    <input type="text" id="issuer" placeholder="Service name" value="TOTP">
+                </div>
+            </div>
+            <button id="generateLabelBtn" class="btn-generate" title="Generate random label and service">🎲</button>
+        </div>
+
+        <div class="form-group">
+            <label for="otpauthUri">otpauth:// URI</label>
+            <div class="input-group">
+                <input type="text" id="otpauthUri" readonly placeholder="Fill secret and label to generate URI">
+                <button id="copyUriBtn" class="btn-copy-uri" title="Copy URI">📋</button>
+            </div>
+        </div>
+
+        <div class="info">
+            <p>This TOTP generator works <strong>fully offline</strong> using Web Crypto API.</p>
+            <p>Open source project. Source code available at <a href="https://github.com/Fl0p/otp" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
