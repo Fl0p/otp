@@ -40,7 +40,8 @@ h1 {
 }
 
 .right-column {
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     background: #f8f9fa;
     border-radius: 12px;
     font-size: 14px;
@@ -51,19 +52,19 @@ h1 {
     color: #333;
     font-size: 20px;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 
 .right-column h3 {
     color: #444;
     font-size: 16px;
-    margin-top: 25px;
+    margin-top: 16px;
     margin-bottom: 12px;
 }
 
 .right-column p {
     line-height: 1.6;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 .right-column ul,

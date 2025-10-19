@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOTP Generator</title>
+    <title>Simple Private TOTP Generator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>TOTP Generator</h1>
+        <h1>Simple Private TOTP Generator</h1>
         
         <div class="content-wrapper">
             <div class="left-column">
@@ -91,34 +91,25 @@
             </div>
 
             <div class="right-column">
-                <h2>About Generator</h2>
+                <h3>About Generator</h3>
                 <p>TOTP (Time-based One-Time Password) generator for creating one-time codes for two-factor authentication.</p>
-                
-                <h3>Features</h3>
-                <ul>
-                    <li>Works completely offline</li>
-                    <li>Uses Web Crypto API</li>
-                    <li>Supports SHA-1, SHA-256, SHA-512</li>
-                    <li>Customizable code length (6-10 digits)</li>
-                    <li>Customizable period (10-60 seconds)</li>
-                    <li>QR code generation for quick setup</li>
-                </ul>
+                <p>Works completely offline. Uses Web Crypto API. Customizable. QR code available.</p>
+                <p>All calculations are performed locally in your browser. Data is not transmitted to any server and is not stored.</p>
 
                 <h3>How to Use</h3>
                 <ol>
                     <li><strong>Enter secret key</strong> (Base32) or generate a new one 🎲</li>
-                    <li><strong>Specify Label and Service</strong> to identify the account</li>
                     <li><strong>Configure parameters</strong> (if different from standard)</li>
-                    <li><strong>Copy TOTP code</strong> 📋 or scan the QR code</li>
+                    <li><strong>Specify Label and Service</strong> to identify the account or generate 🎲</li>
+                    <li><strong>Copy TOTP code</strong> 📋 or scan the </li>
                 </ol>
+                <p>The generated link (and QR code) contains all parameters and can be used to import into authenticator apps (Google Authenticator, Authy, 1Password, etc.).</p>
 
-                <h3>Security</h3>
-                <p>All calculations are performed locally in your browser. Data is not transmitted to any server and is not stored.</p>
-
-                <h3>otpauth:// URI</h3>
-                <p>The generated link contains all parameters and can be used to import into authenticator apps (Google Authenticator, Authy, 1Password, etc.).</p>
-
-                <h3>Open Source</h3>
+                <h3>Why use this generator?</h3>
+                <p><strong>Stay secure in the age of deepfakes and AI-generated content.</strong> Create a shared secret code with someone you trust. Both scan the QR code on this page or create one and share it securely to partner. The secret stays only on your personal devices.</p>
+                <p>When communicating online (messages, calls, or video), and you need to verify each other's identity - simply open your generator and compare the current codes. If they match, you're talking to the real person. Simple, effective, and private.</p>
+                <p><strong>Create multiple codes for different people and purposes.</strong> Use meaningful Labels and Services to organize them. Create different codes for business partners, family members, colleagues, friends, etc. Each shared secret serves as a unique authentication channel between you and that person or group.</p>
+                <br>
                 <p>This project is open source. Source code available at <a href="https://github.com/Fl0p/otp" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
             </div>
         </div>
