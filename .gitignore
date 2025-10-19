@@ -29,3 +29,5 @@ build/
 
 # examples
 examples/
+# ignore gitpmoji directory
+gitpmoji
