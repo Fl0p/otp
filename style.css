@@ -31,7 +31,7 @@ h1 {
 
 .content-wrapper {
     display: grid;
-    grid-template-columns: 500px 1fr;
+    grid-template-columns: 420px 1fr;
     gap: 40px;
 }
 
@@ -323,5 +323,83 @@ h1 {
     border-radius: 8px;
     padding: 10px;
     background: white;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        margin: 10px auto;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .left-column {
+        order: 1;
+    }
+
+    .right-column {
+        order: 2;
+        padding: 15px;
+    }
+
+    .right-column h2 {
+        font-size: 18px;
+    }
+
+    .right-column h3 {
+        font-size: 15px;
+    }
+
+    .totp-value {
+        font-size: 28px;
+        letter-spacing: 3px;
+    }
+
+    #qrCode {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .totp-value {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .btn-generate,
+    .btn-copy-totp,
+    .btn-copy-uri {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
 }
 
